@@ -76,6 +76,7 @@ if report:
 
 if graph:
     plt.plot(XY[:,0],XY[:,1])
-    plt.plot([0,YN1*1.7/K],[0,YN1*1.7])
+    plt.plot([0,YN1*1.05/K],[0,YN1*1.05])
     plt.plot([X0,XN],[Y1,YN1])
+    plt.legend(["Staircase","Equilibrium line","Operating line"])
     plt.show()

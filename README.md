@@ -1,5 +1,5 @@
 # Introduction
-I made these files of separation processes graphical calculation Python code for all my friends and my junior chemical engineering students at Chulalongkorn University (I'm the CU107 and ChE49). It's fine if you're not my friends or my juniors, since I intentionally made this for free education resources. Also, I've not seen anyone made this and published before in my department (or other university in Thailand); therefore, I made this to show an approach which is more convinient than MS Excel or hand calculation. This set of programs is free source and light-duty, so this enable you to run it on your potato computer, tablet, or even your phone.
+I made these files of separation processes graphical calculation Python code for all my friends and my juniors at Chulalongkorn University (I'm the CU107 and ChE49). It's fine if you're not my friends or my juniors, since I intentionally made this to be free education resources for anyone who sees this. Also, I've not seen anyone made this and published before in my department (or other university in Thailand); therefore, I made this to show an approach which is more convinient than MS Excel or hand calculation. This set of programs is free source and light-duty, so this enable you to run it on your potato computer, tablet, or even your phone.
 
 # Installation Guide for real low-tech engineer
 

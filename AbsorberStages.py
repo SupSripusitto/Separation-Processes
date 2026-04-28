@@ -72,6 +72,7 @@ if report:
     print("===== End of the report =====")
 if graph:
     plt.plot(XYonline[:i+1,0],XYonline[:i+1,1])
-    plt.plot([0,1.7*XN],[0,1.7*K*XN])
+    plt.plot([0,1.05*Xn],[0,1.05*K*Xn])
     plt.plot([X0,XN],[Y1,YN1])
+    plt.legend(["Staircase","Equilibrium line","Operating line"])
     plt.show()
