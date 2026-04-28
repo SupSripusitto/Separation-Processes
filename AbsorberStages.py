@@ -64,11 +64,12 @@ while XYonline[i,0] < XN:
         break
 
 if report:
-    print("-=-=Calculation Report=-=-")
-    print("Number of stages:         ", i//2)
-    print("Outlet liquid mole raio:  ", XYonline[i,0])
-    print("Feed mole ratio capable:  ", XYonline[i,1])
-
+    print("===== Calculation Report =====")
+    print("Number of stages:                 ", i//2)
+    print("Outlet liquid mole raio:          ", XYonline[i,0])
+    print("Maximum feed mole ratio capable:  ", XYonline[i,1])
+    print("Liquid to Feed ratio:             ", slope)
+    print("===== End of the report =====")
 if graph:
     plt.plot(XYonline[:i+1,0],XYonline[:i+1,1])
     plt.plot([0,1.7*XN],[0,1.7*K*XN])
