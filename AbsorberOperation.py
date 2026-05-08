@@ -36,9 +36,11 @@ slope = None
 if L > 0:
     slope = L/V
 elif Y1 > 0:
-    slope = -K*(YN1-Y1)/YN1*L
+    slope = -L*(YN1-Y1)/(YN1/K-X0)
 else:
     slope = K*Y1*L
+
+if Y1 < 0:
     Y1 = (1+Y1)*YN1
 
 # Concentration profile from guessed Y1 function
@@ -66,6 +68,10 @@ while err > Tol:
     err = np.abs(YN1-YN1c)/YN1
 
 XN = (YN1-Y1)/slope+X0
+if XY[-1,1] < XY[-2,1]:
+    print("!!! Wrong absorbent composition (too high)")
+    report = 0
+    graph = 0
 
 if report:
     print("===== Calculation Report =====")

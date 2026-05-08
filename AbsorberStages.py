@@ -36,9 +36,11 @@ slope = None
 if L > 0:
     slope = L/V
 elif Y1 > 0:
-    slope = -K*(YN1-Y1)/YN1*L
+    slope = -L*(YN1-Y1)/(YN1/K-X0)
 else:
     slope = K*Y1*L
+
+if Y1 < 0:
     Y1 = (1+Y1)*YN1
 
 # Find the ending criterion
@@ -59,8 +61,15 @@ while XYonline[i,0] < XN:
     i += 1
     XYonline[i,:] = [Xn,Y1 + slope*(Xn-X0)]
 
+    if XYonline[i,0] < 0:
+        print("!!! Wrong absorbent composition (too high).")
+        report = 0
+        graph = 0
+        break
+
     if i == 2*Nm-2:
-        print("Too extreme condition, the number of stages is over the limit.")
+        print("!!! The number of stages is over the limit. (Check your spec. or the parameter you put in)")
+        report = 0
         break
 
 if report:
