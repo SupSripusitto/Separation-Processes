@@ -33,15 +33,13 @@ N = 3
 # Find operating line slope
 slope = None
 
+if Y1 < 0:
+    Y1 = (1+Y1)*YN1
+
 if L > 0:
     slope = L/V
 elif Y1 > 0:
-    slope = -L*(YN1-Y1)/(YN1/K-X0)
-else:
-    slope = K*Y1*L
-
-if Y1 < 0:
-    Y1 = (1+Y1)*YN1
+    slope = -L*(YN1-Y1)/(YN1/(K*(YN1+1)-YN1)-X0)
 
 # Concentration profile from guessed Y1 function
 def Conc_Profile(y1):
@@ -60,6 +58,12 @@ def Conc_Profile(y1):
 Tol = 1e-7
 err = 1
 
+if X0 > Y1/K:
+    Tol = 1
+    report = 0
+    graph = 0
+    print("!!! Too high absorbent feed composition")
+
 while err > Tol:
     XY = Conc_Profile(Y1)
     YN1c = XY[-1,1]
@@ -68,10 +72,6 @@ while err > Tol:
     err = np.abs(YN1-YN1c)/YN1
 
 XN = (YN1-Y1)/slope+X0
-if XY[-1,1] < XY[-2,1]:
-    print("!!! Wrong absorbent composition (too high)")
-    report = 0
-    graph = 0
 
 if report:
     print("===== Calculation Report =====")

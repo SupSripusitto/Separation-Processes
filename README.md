@@ -1,18 +1,17 @@
 # Introduction
-I made these files of separation processes graphical calculation Python code for all my friends and my juniors at Chulalongkorn University (I'm the CU107 and ChE49). It's fine if you're not my friends or my juniors, since I intentionally made this to be free education resources for anyone who sees this. Also, I've not seen anyone made this and published before in my department (or other university in Thailand); therefore, I made this to show an approach which is more convinient than MS Excel or hand calculation. This set of programs is free source and light-duty, so this enable you to run it on your potato computer, tablet, or even your phone.
+I made these files of separation processes graphical calculation Python code for all my friends and my juniors at Chulalongkorn University (I'm the CU107 and ChE49). It's fine if you're not my friends or my juniors, since I intentionally made this to be free education resources for anyone who sees this. Also, I've not seen anyone made and published this before in my department (or other university in Thailand); therefore, I made this to show an approach which is more convinient than MS Excel or hand calculation. Additionally, This set of programs is free source, light-duty and be a white box program, so you can run it on potato PC, tablet or even just a phone while knowing how it works. (not as an expensive, heavy-duty nor black box like some of 20GB process simulation program)
 
-# Installation Guide for real low-tech engineer
-
-**If you can't do any of these steps, it's fine to copy my code to online python editor.**
-
-1. Download Python from https://www.python.org/downloads/
-2. **(Optional)** Download Python editor, there're 2 editor I recommended which are Thonny and Visual Studio Code. (For potato PC, I recommended not to download any of this the Python IDLE is enough.)
-3. Install necessary pakages which is NumPy and Matplotlib using pip install in your terminal (For Thonny, you might need to check in the editor, not in the terminal)
-4. Download Git from https://git-scm.com/
-5. Type cmd in your start menu to open terminal (Command Prompt), locate where you want to store the file with cd, clone this repository using git clone as the following commands
-~~~
-cd "Your directory path to store this file, use / instead of \"
-git clone https://github.com/SupSripusitto/Separation-Processes
-~~~
+# How to use this repository (for low tech chemical engineers)
+1. Open your google colab (or your python editor with NumPy and Matplotlib)
+2. Take a look at my something.py file above
+3. Click it, and copy all my code
+4. Paste in your colab notebook (or your python editor)
+5. Click run button
 
 *Let's enjoy with this subject.*
+
+# What each file do
+|File name|What do it do|
+|--|:--|
+|AbsorberOperation|Find the product purity & recovery from the number of stages and operating conditions stated|
+|AbsorberStages|Find the number of stages from the operating conditions and design specification stated|

@@ -33,15 +33,13 @@ Nm = 150
 # Find operating line slope
 slope = None
 
+if Y1 < 0:
+    Y1 = (1+Y1)*YN1
+
 if L > 0:
     slope = L/V
 elif Y1 > 0:
-    slope = -L*(YN1-Y1)/(YN1/K-X0)
-else:
-    slope = K*Y1*L
-
-if Y1 < 0:
-    Y1 = (1+Y1)*YN1
+    slope = -L*(YN1-Y1)/(YN1/(K*(YN1+1)-YN1)-X0)
 
 # Find the ending criterion
 XN = X0 + (YN1-Y1)/slope
@@ -51,6 +49,11 @@ XYonline = np.zeros((2*Nm,2))
 XYonline[0,:] = [X0,Y1]
 
 i = 0
+if X0 > Y1/K:
+    XYonline[0,:] = np.ones((1,2))
+    print("!!! Too high absorbent feed composition")
+    report = 0
+    graph = 0
 
 while XYonline[i,0] < XN:
     Yn = XYonline[i,1]
@@ -60,12 +63,6 @@ while XYonline[i,0] < XN:
     Xn = XYonline[i,0]
     i += 1
     XYonline[i,:] = [Xn,Y1 + slope*(Xn-X0)]
-
-    if XYonline[i,0] < 0:
-        print("!!! Wrong absorbent composition (too high).")
-        report = 0
-        graph = 0
-        break
 
     if i == 2*Nm-2:
         print("!!! The number of stages is over the limit. (Check your spec. or the parameter you put in)")
