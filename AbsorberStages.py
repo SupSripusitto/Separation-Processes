@@ -49,6 +49,7 @@ XYonline = np.zeros((2*Nm,2))
 XYonline[0,:] = [X0,Y1]
 
 i = 0
+
 if X0 > Y1/K:
     XYonline[0,:] = np.ones((1,2))
     print("!!! Too high absorbent feed composition")

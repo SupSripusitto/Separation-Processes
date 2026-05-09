@@ -15,3 +15,4 @@ I made these files of separation processes graphical calculation Python code for
 |--|:--|
 |AbsorberOperation|Find the product purity & recovery from the number of stages and operating conditions stated|
 |AbsorberStages|Find the number of stages from the operating conditions and design specification stated|
+|Isotherms|Fit and plot the isotherm with least square method based-on gradient descent algorithms|
