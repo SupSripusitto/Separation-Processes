@@ -47,6 +47,11 @@ def AbsorberOperation(X0 : float, YN1 : float, Y1 : float, V : float, L : float,
         report = 0
         graph = 0
         print("!!! Too high absorbent feed composition")
+    elif Y1 > YN1:
+        Tol = 1
+        report = 0
+        graph = 0
+        print("!!! Outlet mole ratio must less than the inlet.")
 
     while err > Tol:
         XY = Conc_Profile(Y1)
@@ -108,6 +113,11 @@ def AbsorberDesign(X0 : float, YN1 : float, Y1 : float, V : float, L : float, K 
         print("!!! Too high absorbent feed composition")
         report = 0
         graph = 0
+    elif Y1 > YN1:
+        XYonline[0,:] = np.ones((1,2))
+        report = 0
+        graph = 0
+        print("!!! Outlet mole ratio must less than the inlet.")
 
     while XYonline[i,0] < XN:
         Yn = XYonline[i,1]

@@ -3,7 +3,7 @@ I made this package about separation processes graphical calculation in Python t
 
 Let's enjoy with this subject.
 
-*-Supphawit Sripusitto (CU INTANIA107)*
+*- Supphawit Sripusitto (CU INTANIA107)*
 > [!NOTE]
 > I just have too much time on my hands, so I begin this project a week before final exam to the time during internship to boost my cognitive load.
 
@@ -16,12 +16,61 @@ Let's enjoy with this subject.
 |AbsorberOperation|Calculate the operating conditions from spec. & design|
 |AbsorberDesign|Calculate number of stages from spec.|
 
+# How to install & use this package
+
+1. Download SepUnit.py
+2. Find the exact path to store this file
+3. import file to main script
+
+> [!NOTE]
+> From my experience, the computer literacy (especially in logic) of chemical engineering students is averagely terrible. Therefore, I try to make the easiest way to install this package to your computer w/o using pip install, or git clone.
+
+## Import Example
+If the directory structure is
+~~~
+Project67/
+├── Folder/
+|   └── main.py
+└── package/
+    └── SepUnit.py
+~~~
+use
+~~~
+from ..package import SepUnit
+~~~
+
+If there exist a space or operation like '-' in any part of your package directory, like this structure
+
+> [!CAUTION]
+> The following method is strongly not recommended. Hints are not visible while using this method. Changing your folder name is a lot easier.
+
+~~~
+Project/
+├── Folder/
+|   └── main.py
+└── package hok-jed/
+    └── SepUnit.py
+~~~
+
+use
+
+~~~
+import sys
+from pathlib import Path
+
+module_dir = Path(__file__).resolve().parent.parent / "package hok-jed"
+
+sys.path.append(str(module_dir))
+
+import SepUnit
+~~~
 # AbsorberOperation
 
 ## Syntax
 ~~~
 import SepUnit
 
+SepUnit.AbsorberOperation(X0, YN1, Y1, V, L, K, N)
 SepUnit.AbsorberOperation(X0, YN1, Y1, V, L, K, N, (report), (graph))
 ~~~
 ## Parameters
@@ -32,7 +81,7 @@ SepUnit.AbsorberOperation(X0, YN1, Y1, V, L, K, N, (report), (graph))
 |YN1 |float| Inlet gas mole ratio|
 |Y1 |float| Outlet gas spec. (put negative value for recovery fraction)|
 |V |float| Molar gas (w/o solute) flow rate|
-|L |float| Molar liquid (w/o solute) flow rate (put neg|for times of minimum liquid flow rate)|
+|L |float| Molar liquid (w/o solute) flow rate (put neg. for times of minimum liquid flow rate)|
 |K |float| Equilibrium constant / Partitioning coefficient|
 |N |integer| Number of stages|
 |report *(optional)*| boolean| show report or not|
@@ -60,6 +109,8 @@ Solute recovery in absorbent: 0.7274088460270522
 ~~~
 and this plot
 
+![AbsorberOperation graph result](https://github.com/user-attachments/assets/602050ed-198a-4075-9ef0-8681461cd821)
+
 # AbsorberDesign
 ## Syntax
 ~~~
@@ -76,7 +127,7 @@ SepUnit.AbsorberDesign(X0, YN1, Y1, V, L, K, (Nm), (report), (graph))
 |YN1 |float| Inlet gas mole ratio|
 |Y1 |float| Outlet gas spec. (put negative value for recovery fraction)|
 |V |float| Molar gas (w/o solute) flow rate|
-|L |float| Molar liquid (w/o solute) flow rate (put neg|for times of minimum liquid flow rate)|
+|L |float| Molar liquid (w/o solute) flow rate (put neg. for times of minimum liquid flow rate)|
 |K |float| Equilibrium constant / Partitioning coefficient|
 |Nm *(optional)*|integer| Maximum number of stages|
 |report *(optional)*| boolean| show report or not|
@@ -101,3 +152,5 @@ Liquid to Feed ratio:              72.68119037769026
 ===== End of the report =====
 ~~~
 and this plot
+
+![AbsorberDesign graph result](https://github.com/user-attachments/assets/3501b143-81ea-4e58-8069-f0629c0bcb78)
